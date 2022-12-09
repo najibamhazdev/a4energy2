@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Responsive Datatables'); ?>
+<?php $__env->startSection('title', 'Cigarettes'); ?>
 
 <?php $__env->startSection('css'); ?>
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/vendors/datatables.css')); ?>">
@@ -9,12 +9,12 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('breadcrumb-title'); ?>
-<h3>List Of Categories</h3>
+<h3>List Of Cigarettes </h3>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('breadcrumb-items'); ?>
-<li class="breadcrumb-item active">Categories</li>
 
+<li class="breadcrumb-item active">Cigarettes</li>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -28,13 +28,14 @@
 				</div>
 				<div class="card-body">
 					<div class="dt-ext table-responsive">
-					<a href="<?php echo e(URL::route('categories.create')); ?>" title="Create New" ><button class="btn btn-primary btn-sm mb-5 right-btn" > Create New <i class="fa fa-plus-square" ></i></button></a>
+					<a href="<?php echo e(URL::route('cigarettes.create')); ?>" title="Create New" ><button class="btn btn-primary btn-sm mb-5 right-btn" > Create New <i class="fa fa-plus-square" ></i></button></a>
 					
 					
 						<table class="display" id="responsive">
 							<thead>
 								<tr>
-									<th>Category Name</th>
+									<th>Name</th>
+									<th>Category</th>
 									<th>Action</th>
 									
 									
@@ -42,10 +43,11 @@
 							</thead>
 							<tbody>
 								
-								<?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+								<?php $__currentLoopData = $cigarettes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cigarette): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 									<tr>
-										<td><?php echo e($category->name); ?></td>
-										<td><a href="<?php echo e(URL::route('categories.edit', array('id' => $category->id))); ?>" title="Edit Record" ><i class="fa fa-edit text-success" ></i></a>&nbsp; &nbsp; <a href="<?php echo e(URL::route('categories.delete', array('id' => $category->id))); ?>" title="Delete Record" ><i class="fa fa-trash text-danger" ></i></a></td>
+										<td><?php echo e($cigarette->name); ?></td>
+										<td><?php echo e($cigarette->category->name); ?></td>
+										<td><a href="<?php echo e(URL::route('cigarettes.edit', array('id' => $cigarette->id))); ?>" title="Edit Record" ><i class="fa fa-edit text-success" ></i></a>&nbsp; &nbsp; <a href="<?php echo e(URL::route('cigarettes.delete', array('id' => $cigarette->id))); ?>" title="Delete Record" ><i class="fa fa-trash text-danger" ></i></a></td>
 										
 									</tr>
 									
@@ -87,4 +89,4 @@
 <script src="<?php echo e(asset('assets/js/datatable/datatable-extension/dataTables.scroller.min.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/js/datatable/datatable-extension/custom.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.simple.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/gile/laravel-projects/a4energy2/resources/views/categories/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.simple.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/gile/laravel-projects/a4energy2/resources/views/cigarettes/index.blade.php ENDPATH**/ ?>

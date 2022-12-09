@@ -8,11 +8,11 @@
 @endsection
 
 @section('breadcrumb-title')
-<h3>Default Forms</h3>
+<h3>Create New</h3>
 @endsection
 
 @section('breadcrumb-items')
-<li class="breadcrumb-item">Categories</li>
+<li class="breadcrumb-item"><a href="{{route('categories.index')}}">Categories</a></li>
 <li class="breadcrumb-item active">Create Category</li>
 @endsection
 
@@ -37,7 +37,7 @@
 								<h6>Category Information</h6>
 								<div class="mb-3">
 									<label class="col-form-label">Name</label>
-									<input class="form-control" type="text" name="name" placeholder="your Name">
+									<input class="form-control" type="text" name="name" placeholder="Category Name">
 								</div>
 								<div class="mb-3">
 									<label class="col-form-label">Display Order</label>

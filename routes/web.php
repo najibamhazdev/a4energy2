@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CigarettesController;
+use App\Http\Controllers\DailyCountController;
+use App\Models\DailyCount;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Application;
@@ -22,6 +25,7 @@ Route::get('lang/{locale}', function ($locale) {
 
 
 //Route::get('/user', [UserController::class, 'index']);
+//-----------Categories----------------------//
 Route::get('/categories',[CategoriesController::class,'index'])->name('categories.index');
 Route::get('/categories/create',[CategoriesController::class,'create'])->name('categories.create');
 Route::get('/categories/edit/{id}',[CategoriesController::class,'edit'])->name('categories.edit');
@@ -30,8 +34,32 @@ Route::get('/categories/delete/{id}',[CategoriesController::class,'delete'])->na
 //--------categories Post
 Route::post('categories/create',[CategoriesController::class,'store'])->name('categories.store');
 Route::post('categories/edit/{id}',[CategoriesController::class,'update'])->name('categories.update');
+Route::post('categories/delete/{id}',[CategoriesController::class,'destroy'])->name('categories.destroy');
 
 
+//-----------Cigarettes----------------------
+Route::get('/cigarettes',[CigarettesController::class,'index'])->name('cigarettes.index');
+Route::get('/cigarettes/create',[CigarettesController::class,'create'])->name('cigarettes.create');
+Route::get('/cigarettes/edit/{id}',[CigarettesController::class,'edit'])->name('cigarettes.edit');
+Route::get('/cigarettes/delete/{id}',[CigarettesController::class,'delete'])->name('cigarettes.delete');
+
+//--------categories Post
+Route::post('cigarettes/create',[CigarettesController::class,'store'])->name('cigarettes.store');
+Route::post('cigarettes/edit/{id}',[CigarettesController::class,'update'])->name('cigarettes.update');
+Route::post('cigarettes/delete/{id}',[CigarettesController::class,'destroy'])->name('cigarettes.destroy');
+
+//------------------- Daily Count----------
+
+Route::get('/dailycount',[DailyCountController::class,'index'])->name('dailycount.index');
+Route::get('/dailycount/create',[DailyCountController::class,'create'])->name('dailycount.create');
+Route::get('/dailycount/edit/{id}',[DailyCountController::class,'edit'])->name('dailycount.edit');
+Route::get('/dailycount/delete/{id}',[DailyCountController::class,'delete'])->name('dailycount.delete');
+
+//--------------- Daily Count Post---
+
+Route::post('dailycount/create',[DailyCountController::class,'store'])->name('dailycount.store');
+Route::post('dailycount/edit/{id}',[DailyCountController::class,'update'])->name('dailycount.update');
+Route::post('dailycount/delete/{id}',[DailyCountController::class,'destroy'])->name('dailycount.destroy');
 
 
 

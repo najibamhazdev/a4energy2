@@ -1,19 +1,16 @@
 <?php
 
 namespace App\Models;
-use App\Models\Stockcigarette;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class DailyCount extends Model
 {
     use HasFactory;
+    protected $fillable = ['date', 'note' , 'empl_name'];
 
-    protected $fillable = ['date', 'note'];
-
-    public function stockcigarettes(){
+    public function cigarettescount(){
         return $this->hasMany(Stockcigarette::class);
     }
-
 }

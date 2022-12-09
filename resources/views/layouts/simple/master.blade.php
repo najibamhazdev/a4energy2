@@ -56,6 +56,19 @@
               </div>
             </div>
           </div>
+
+          <!------------------Modal-------------->
+
+          {{--  Modal declaration --}}
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        
+        
+        <div class="modal-dialog">
+            <div class="modal-content load_modal"></div>
+        </div>
+        
+      </div>
+
           <!-- Container-fluid starts-->
           @yield('content')
           <!-- Container-fluid Ends-->
@@ -75,5 +88,7 @@
             $(".sidebar-submenu" ).css( "display", "block" );
       }
     </script>
+
+
   </body>
 </html>

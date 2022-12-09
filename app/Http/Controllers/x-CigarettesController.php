@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Cigarette;
 
-class CategoriesController extends Controller
+class CigarettesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->get();
-        return view('categories.index', compact("categories"));
-        //return response()->json($categories);
+        $cigarettes = Cigarette::latest()->get();
+        return view('cigarettes.index', compact("cigarettes"));
+        //return response()->json($cigarettes);
     }
 
     /**
@@ -27,7 +27,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.forms.create');
+        return view('cigarettes.forms.create');
     }
 
     /**
@@ -39,13 +39,13 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         
-        $category = new Category([
+        $cigarette = new cigarette([
             'name' => $request->get('name'),
             'ord' => $request->get('ord')
           ]);
-          $category->save();
-          return redirect()->route('categories.index')
-                        ->with('success','Category created successfully.');
+          $cigarette->save();
+          return redirect()->route('cigarettes.index')
+                        ->with('success','Record created successfully.');
           
           //return response()->json('Successfully added');
     }
@@ -69,20 +69,20 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('categories.forms.edit', compact('category'));
+        $cigarette = Cigarette::find($id);
+        return view('cigarettes.forms.edit', compact('cigarette'));
         
-        //return response()->json($category);
+        //return response()->json($cigarette);
     }
 
 
 
     public function delete($id)
     {
-        $category = Category::find($id);
-        return view('categories.forms.delete', compact('category'));
+        $cigarette = Cigarette::find($id);
+        return view('cigarettes.forms.delete', compact('cigarette'));
         
-        //return response()->json($category);
+        //return response()->json($cigarette);
     }
 
     /**
@@ -95,13 +95,13 @@ class CategoriesController extends Controller
     public function update(Request $request, $id)
     {
         //dd($id);
-        $category = Category::find($id);
-        $category->name = $request->get('name');
-        $category->ord = $request->get('ord');
-        $category->save();
+        $cigarette = Cigarette::find($id);
+        $cigarette->name = $request->get('name');
+        $cigarette->ord = $request->get('ord');
+        $cigarette->save();
 
-        return redirect()->route('categories.index')
-                        ->with('success','Category Updated successfully.');
+        return redirect()->route('cigarettes.index')
+                        ->with('success','Record Updated successfully.');
     }
 
     /**
@@ -112,17 +112,12 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $cigarettes = Cigarette::where('category_id',$id)->count();
-        if($cigarettes > 0){
-            return redirect()->route('categories.index')
-                        ->with('danger','Category is related to 1 or cigarettes');
-        }else{
-            $category->delete();
+        $cigarette = Cigarette::find($id);
+        $cigarette->delete();
 
-            return redirect()->route('categories.index')
-                        ->with('success','Category Deleted successfully.');
-        }
+        return redirect()->route('cigarettes.index')
+                        ->with('success','Record Deleted successfully.');
+        
         //return response()->json('Successfully Deleted');
     }
 

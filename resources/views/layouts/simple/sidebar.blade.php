@@ -21,6 +21,23 @@
 						</div>
 					</li>
 					<li class="sidebar-list">
+						<a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/categories' ? 'active' : '' }}" href="{{route('categories.index')}}"><i data-feather="home"></i><span class="lan-3">Categories</span>
+						  
+						</a>
+					</li>
+					<li class="sidebar-list">
+						<a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/cigarettes' ? 'active' : '' }}" href="{{route('cigarettes.index')}}"><i data-feather="home"></i><span class="lan-3">Cigarettes</span>
+						  
+						</a>
+					</li>
+
+					<li class="sidebar-list">
+						<a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/dailycount' ? 'active' : '' }}" href="{{route('dailycount.index')}}"><i data-feather="home"></i><span class="lan-3">Cigarettes Daily Count</span>
+						  
+						</a>
+					</li>
+
+					<li class="sidebar-list">
 						<label class="badge badge-success">2</label><a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/dashboard' ? 'active' : '' }}" href="#"><i data-feather="home"></i><span class="lan-3">{{ trans('lang.Dashboards') }}</span>
 							<div class="according-menu"><i class="fa fa-angle-{{request()->route()->getPrefix() == '/dashboard' ? 'down' : 'right' }}"></i></div>
 						</a>

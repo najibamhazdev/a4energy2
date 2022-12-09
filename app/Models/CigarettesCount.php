@@ -7,11 +7,11 @@ use App\Models\Cigarette;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stockcigarette extends Model
+class CigarettesCount extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['stock_id', 'cigarette_id','qty'];
+    protected $fillable = ['dailycount_id', 'cigarette_id','qty'];
 
     public function cigarette()
     {

@@ -56,6 +56,19 @@
               </div>
             </div>
           </div>
+
+          <!------------------Modal-------------->
+
+          
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        
+        
+        <div class="modal-dialog">
+            <div class="modal-content load_modal"></div>
+        </div>
+        
+      </div>
+
           <!-- Container-fluid starts-->
           <?php echo $__env->yieldContent('content'); ?>
           <!-- Container-fluid Ends-->
@@ -75,5 +88,7 @@
             $(".sidebar-submenu" ).css( "display", "block" );
       }
     </script>
+
+
   </body>
 </html><?php /**PATH /home/gile/laravel-projects/a4energy2/resources/views/layouts/simple/master.blade.php ENDPATH**/ ?>

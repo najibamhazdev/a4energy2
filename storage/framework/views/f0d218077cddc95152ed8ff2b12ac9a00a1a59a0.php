@@ -21,6 +21,23 @@
 						</div>
 					</li>
 					<li class="sidebar-list">
+						<a class="sidebar-link sidebar-title <?php echo e(request()->route()->getPrefix() == '/categories' ? 'active' : ''); ?>" href="<?php echo e(route('categories.index')); ?>"><i data-feather="home"></i><span class="lan-3">Categories</span>
+						  
+						</a>
+					</li>
+					<li class="sidebar-list">
+						<a class="sidebar-link sidebar-title <?php echo e(request()->route()->getPrefix() == '/cigarettes' ? 'active' : ''); ?>" href="<?php echo e(route('cigarettes.index')); ?>"><i data-feather="home"></i><span class="lan-3">Cigarettes</span>
+						  
+						</a>
+					</li>
+
+					<li class="sidebar-list">
+						<a class="sidebar-link sidebar-title <?php echo e(request()->route()->getPrefix() == '/dailycount' ? 'active' : ''); ?>" href="<?php echo e(route('dailycount.index')); ?>"><i data-feather="home"></i><span class="lan-3">Cigarettes Daily Count</span>
+						  
+						</a>
+					</li>
+
+					<li class="sidebar-list">
 						<label class="badge badge-success">2</label><a class="sidebar-link sidebar-title <?php echo e(request()->route()->getPrefix() == '/dashboard' ? 'active' : ''); ?>" href="#"><i data-feather="home"></i><span class="lan-3"><?php echo e(trans('lang.Dashboards')); ?></span>
 							<div class="according-menu"><i class="fa fa-angle-<?php echo e(request()->route()->getPrefix() == '/dashboard' ? 'down' : 'right'); ?>"></i></div>
 						</a>

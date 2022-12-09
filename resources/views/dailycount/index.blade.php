@@ -1,5 +1,5 @@
 @extends('layouts.simple.master')
-@section('title', 'Responsive Datatables')
+@section('title', 'Daily Count')
 
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendors/datatables.css')}}">
@@ -10,12 +10,12 @@
 @endsection
 
 @section('breadcrumb-title')
-<h3>List Of Categories</h3>
+<h3>List Of Daily Counts </h3>
 @endsection
 
 @section('breadcrumb-items')
-<li class="breadcrumb-item active">Categories</li>
 
+<li class="breadcrumb-item active">Daily Counts</li>
 @endsection
 
 @section('content')
@@ -29,13 +29,15 @@
 				</div>
 				<div class="card-body">
 					<div class="dt-ext table-responsive">
-					<a href="{{ URL::route('categories.create') }}" title="Create New" ><button class="btn btn-primary btn-sm mb-5 right-btn" > Create New <i class="fa fa-plus-square" ></i></button></a>
+					<a href="{{ URL::route('dailycount.create') }}" title="Create New" ><button class="btn btn-primary btn-sm mb-5 right-btn" > Create New <i class="fa fa-plus-square" ></i></button></a>
 					
 					
 						<table class="display" id="responsive">
 							<thead>
 								<tr>
-									<th>Category Name</th>
+									<th>Date</th>
+									<th>Employee</th>
+									<th>Note</th>
 									<th>Action</th>
 									
 									
@@ -43,10 +45,12 @@
 							</thead>
 							<tbody>
 								
-								@foreach ($categories as $category)
+								@foreach ($dailycounts as $daily)
 									<tr>
-										<td>{{$category->name}}</td>
-										<td><a href="{{ URL::route('categories.edit', array('id' => $category->id)) }}" title="Edit Record" ><i class="fa fa-edit text-success" ></i></a>&nbsp; &nbsp; <a href="{{ URL::route('categories.delete', array('id' => $category->id)) }}" title="Delete Record" ><i class="fa fa-trash text-danger" ></i></a></td>
+										<td>{{$daily->date}}</td>
+										<td>{{$daily->empl_name}}</td>
+										<td>{{$daily->note}}</td>
+										<td><a href="{{route('dailycount.edit', array('id' => $daily->id)) }}" title="Edit Record" ><i class="fa fa-edit text-success" ></i></a>&nbsp; &nbsp; <a href="{{ URL::route('dailycount.delete', array('id' => $daily->id)) }}" title="Delete Record" ><i class="fa fa-trash text-danger" ></i></a></td>
 										
 									</tr>
 									
